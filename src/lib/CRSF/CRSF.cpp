@@ -864,7 +864,7 @@ bool CRSF::RXhandleUARTout()
         retVal = true;
     }
     
-    if (SerialOutFIFO.peek() > 0 && bytesWritten < maxBytesPerCall)
+    while (SerialOutFIFO.peek() > 0 && bytesWritten < maxBytesPerCall)
     {
         if (SerialOutFIFO.size() > SerialOutFIFO.peek())
         {
